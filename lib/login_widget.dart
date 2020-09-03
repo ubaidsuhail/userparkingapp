@@ -13,6 +13,7 @@ import 'package:p4u/register_widget.dart';
 import 'package:p4u/values.dart';
 import 'package:flutter/gestures.dart';
 import 'package:p4u/menu_widget.dart';
+import 'package:p4u/menusecondwidget.dart';
 import 'package:p4u/forget_password_widget.dart';
 class LoginWidget extends StatelessWidget {
   
@@ -166,7 +167,8 @@ class LoginWidget extends StatelessWidget {
               width: MediaQuery.of(context).size.width*0.9,
               child: FlatButton(
                 onPressed: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()));
+                  //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MenuSecondWidget()));
                 },
                 color: AppColors.primaryElement,
                 shape: RoundedRectangleBorder(

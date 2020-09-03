@@ -23,27 +23,7 @@ class _MenuScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     String name = "";
     String email = "";
-    return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        title: Text("Profile Screen"),
-        elevation: 0,
-        actions: [
-          PopupMenuButton(
-            // key: _menuKey,
-              itemBuilder: (_) => <PopupMenuItem<String>>[
-                new PopupMenuItem<String>(
-                    child: const Text('Doge'), value: 'Doge'),
-                new PopupMenuItem<String>(
-                    child: const Text('Lion'), value: 'Lion'),
-              ],
-              onSelected: (_) {})
-        ],
-      ),
-
-      backgroundColor:  Color.fromARGB(255, 74, 144, 226),
-      body: Container(
+    return Container(
         height: MediaQuery.of(context).size.height,
         width: MediaQuery.of(context).size.width,
         child: Stack(
@@ -322,7 +302,7 @@ class _MenuScreenState extends State<ProfileScreen> {
             )
           ],),
 
-      ),
-    );
+      );
+
   }
 }
