@@ -31,11 +31,19 @@ dependencies:
   auto_size_text: ^2.1.0
   fluttertoast: ^7.0.4
   flutter_time_picker_spinner: ^1.0.6+1
+  calendar_timeline: ^0.6.3
+  intl: ^0.16.1
+  flutter_launcher_icons: ^0.7.5
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/icon.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec

@@ -82,7 +82,7 @@ class MYBookingsWidget extends StatelessWidget {
 
                           GestureDetector(
                             onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCashWidget()));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCCWidget()));
 
                             },
                             child:Container(
@@ -213,7 +213,7 @@ class MYBookingsWidget extends StatelessWidget {
 
                         GestureDetector(
                           onTap: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCCWidget()));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DetailsCashWidget()));
                             print("payment successfull");
                           },
                           child:Container(

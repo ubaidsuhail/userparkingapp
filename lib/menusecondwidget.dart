@@ -25,17 +25,17 @@ class _MenuScreenState extends State<MenuSecondWidget> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        actions: [
-          PopupMenuButton(
-            // key: _menuKey,
-              itemBuilder: (_) => <PopupMenuItem<String>>[
-                new PopupMenuItem<String>(
-                    child: const Text('Doge'), value: 'Doge'),
-                new PopupMenuItem<String>(
-                    child: const Text('Lion'), value: 'Lion'),
-              ],
-              onSelected: (_) {})
-        ],
+        // actions: [
+        //   PopupMenuButton(
+        //     // key: _menuKey,
+        //       itemBuilder: (_) => <PopupMenuItem<String>>[
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Test1'), value: 'Test1'),
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Test2'), value: 'Test2'),
+        //       ],
+        //       onSelected: (_) {})
+        // ],
         elevation: 0,
       ),
       drawer:  ClipRRect(

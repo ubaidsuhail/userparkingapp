@@ -8,6 +8,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:p4u/login_widget.dart';
+import 'package:p4u/privacy_policy.dart';
 import 'package:p4u/privacy_policy_widget.dart';
 import 'package:p4u/values.dart';
 import 'package:p4u/verift_account_widget.dart';
@@ -61,7 +62,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                           color: AppColors.secondaryText,
                                           fontFamily: "Roboto",
                                           fontWeight: FontWeight.w700,
-                                          fontSize: 45,
+                                          fontSize: 30,
                                           height: 1,
                                         )),
                                     Text(""),
@@ -77,8 +78,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   child:TextField(
                                     decoration: InputDecoration(
                                       hintText: "Name",
+                                      hintStyle: TextStyle(fontSize: 15),
                                       //border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 6.0,right: 2.0),
+                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 15.0,right: 2.0),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                         borderSide: BorderSide(color: Colors.white, width: 1.0),
@@ -110,9 +112,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   child:TextField(
                                     decoration: InputDecoration(
                                       hintText: "Password",
+                                      hintStyle: TextStyle(fontSize: 15),
                                       suffixIcon:IconButton(icon: Icon(Icons.visibility,color: Colors.grey,size:20.0), onPressed: null),
                                       //border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 6.0,right: 2.0),
+                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 15.0,right: 2.0),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                         borderSide: BorderSide(color: Colors.white, width: 1.0),
@@ -146,8 +149,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                   child:TextField(
                                     decoration: InputDecoration(
                                       hintText: "Email Address",
+                                      hintStyle: TextStyle(fontSize: 15),
                                       //border: InputBorder.none,
-                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 6.0,right: 2.0),
+                                      contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 15.0,right: 2.0),
                                       enabledBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                         borderSide: BorderSide(color: Colors.white, width: 1.0),
@@ -197,7 +201,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         {
                                          setState(() {
                                            switchVal = true;
+
                                          });
+                                         Navigator.push(context, MaterialPageRoute(builder: (context) => PrivacyPolicy()));
                                         }
                                         else
                                           {
@@ -258,8 +264,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                         recognizer: TapGestureRecognizer()
                                           ..onTap = () {
                                             print("Login");
-                                            //Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWidget()));
-                                            Navigator.pop(context);
+                                            Navigator.push(context, MaterialPageRoute(builder: (context) => LoginWidget()));
+                                            // Navigator.pop(context);
                                           },
                                         style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),
                                       ),

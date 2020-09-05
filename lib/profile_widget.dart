@@ -99,9 +99,12 @@ class _MenuScreenState extends State<ProfileScreen> {
                               border: Border.all(color: Colors.white)
                           ),
                           height: 40.0,
-                          width: MediaQuery.of(context).size.width *0.4,
+                          width: MediaQuery.of(context).size.width *0.42,
                           // color: Colors.yellow,
-                          child: Center(child: Text("Complete your profile",style: TextStyle(color: Colors.white),),),
+                          child: Center(child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                            child: Text("Complete your profile",textScaleFactor: 0.8,style: TextStyle(color: Colors.white),),
+                          ),),
                         )
 
                       ],
@@ -124,7 +127,7 @@ class _MenuScreenState extends State<ProfileScreen> {
                         // controller: _userEmail,
                         decoration: InputDecoration(
                             hintText: 'Name',
-                            hintStyle: TextStyle(fontSize: 18.0),
+                            hintStyle: TextStyle(fontSize: 15.0),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.only(left: 15)
 
@@ -150,7 +153,7 @@ class _MenuScreenState extends State<ProfileScreen> {
                         // controller: _userEmail,
                         decoration: InputDecoration(
                             hintText: 'Email',
-                            hintStyle: TextStyle(fontSize: 18.0),
+                            hintStyle: TextStyle(fontSize: 15.0),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.only(left: 15,top: 12.0),
                             suffixIcon: IconButton(
@@ -184,7 +187,7 @@ class _MenuScreenState extends State<ProfileScreen> {
                         // controller: _userEmail,
                         decoration: InputDecoration(
                             hintText: 'Telephone',
-                            hintStyle: TextStyle(fontSize: 18.0),
+                            hintStyle: TextStyle(fontSize: 15.0),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.only(left: 15)
 
@@ -226,7 +229,7 @@ class _MenuScreenState extends State<ProfileScreen> {
                         // controller: _userEmail,
                         decoration: InputDecoration(
                             hintText: 'Password',
-                            hintStyle: TextStyle(fontSize: 18.0),
+                            hintStyle: TextStyle(fontSize: 15.0),
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.only(left: 15,top: 12.0),
                             suffixIcon: IconButton(
@@ -260,7 +263,7 @@ class _MenuScreenState extends State<ProfileScreen> {
                         // controller: _userEmail,
                         decoration: InputDecoration(
                             hintText: 'Telephone',
-                            hintStyle: TextStyle(fontSize: 18.0),
+                            hintStyle: TextStyle(fontSize: 15.0),
                             border: InputBorder.none,
 
                             contentPadding: EdgeInsets.only(left: 15,top: 12.0),

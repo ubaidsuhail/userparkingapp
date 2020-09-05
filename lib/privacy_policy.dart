@@ -11,14 +11,20 @@ import 'package:p4u/register_widget.dart';
 import 'package:p4u/values.dart';
 
 
-class PrivacyPolicyWidget extends StatelessWidget {
+class PrivacyPolicy extends StatelessWidget {
 
   //void onIAgreeButtonPressed(BuildContext context) => Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterWidget()));
 
   @override
   Widget build(BuildContext context) {
 
-    return Container(
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+      backgroundColor: Colors.transparent,
+        elevation: 0.0,
+      ),
+        body: Container(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           decoration: BoxDecoration(
@@ -83,7 +89,33 @@ class PrivacyPolicyWidget extends StatelessWidget {
                                         ],
                                       ))
                               ),
-
+                              Container(
+                                  width: 88,
+                                  height: 35,
+                                  //margin: EdgeInsets.only(right: 66,top:450),
+                                  child: FlatButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        print("I agree");
+                                      } ,
+                                      color: Color.fromARGB(255, 74, 144, 226),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: Radii.k5pxRadius,
+                                      ),
+                                      textColor: Color.fromARGB(255, 255, 255, 255),
+                                      padding: EdgeInsets.all(0),
+                                      child: Text(
+                                          "I AGREE",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                            color: AppColors.secondaryText,
+                                            fontFamily: "Roboto",
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: 14,
+                                          )
+                                      )
+                                  )
+                              )
 
 
 
@@ -96,6 +128,6 @@ class PrivacyPolicyWidget extends StatelessWidget {
                 ],
               )
           ),
-        );
+        ));
   }
 }

@@ -9,8 +9,16 @@ import 'package:p4u/values.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:location/location.dart';
+import 'package:intl/intl.dart';
 //import 'package:geolocator/geolocator.dart';
+
+
+import 'dart:convert';
+import 'package:calendar_timeline/calendar_timeline.dart';
+import 'package:intl/intl.dart';
+
 
 class HomeDateTimeWidget extends StatefulWidget {
   @override
@@ -25,6 +33,7 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
   int _radioValue3 = -1;
   int _radioValue4 = -1;
   int _radioValue5 = -1;
+  String apptDate = "";
 
   void _handleRadioValueChange1(int value) {
     setState(() {
@@ -127,7 +136,7 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
 
 
 
-
+  DateTime _selectedDate;
   //---------------------------
   Completer<GoogleMapController> _controller = Completer();
 
@@ -139,6 +148,24 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
   bool monVal = false;
   bool tuVal = false;
   bool wedVal = false;
+@override
+  void initState() {
+    // TODO: implement initState
+  _resetSelectedDate();
+    super.initState();
+  }
+  void _resetSelectedDate() {
+    _selectedDate = DateTime.now();
+
+  }
+
+  List doctorDetails = [];
+
+  int _selectedIndex = 0;
+
+  _onSelected(int index) {
+    setState(() => _selectedIndex = index);
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -151,17 +178,17 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
         backgroundColor: Colors.transparent,
         // title: Text("Profile Screen"),
         elevation: 0,
-        actions: [
-          PopupMenuButton(
-            // key: _menuKey,
-              itemBuilder: (_) => <PopupMenuItem<String>>[
-                new PopupMenuItem<String>(
-                    child: const Text('Doge'), value: 'Doge'),
-                new PopupMenuItem<String>(
-                    child: const Text('Lion'), value: 'Lion'),
-              ],
-              onSelected: (_) {})
-        ],
+        // actions: [
+        //   PopupMenuButton(
+        //     // key: _menuKey,
+        //       itemBuilder: (_) => <PopupMenuItem<String>>[
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Doge'), value: 'Doge'),
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Lion'), value: 'Lion'),
+        //       ],
+        //       onSelected: (_) {})
+        // ],
       ),
 
       // backgroundColor:  Color.fromARGB(255, 74, 144, 226),
@@ -293,50 +320,54 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
                           ],
                         ),
                       ],),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        new Radio(
-                          value: 0,
-                          groupValue: _radioValue1,
-                          onChanged: _handleRadioValueChange1,
-                        ),
-                        new Text(
-                          '\$1/hr',
-                          style: new TextStyle(fontSize: 16.0),
-                        ),
-                        new Radio(
-                          value: 1,
-                          groupValue: _radioValue1,
-                          onChanged: _handleRadioValueChange1,
-                        ),
-                        new Text(
-                          '\$18/day',
-                          style: new TextStyle(
-                            fontSize: 16.0,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          new Radio(
+                            value: 0,
+                            groupValue: _radioValue1,
+                            onChanged: _handleRadioValueChange1,
                           ),
-                        ),
-                        new Radio(
-                          value: 2,
-                          groupValue: _radioValue1,
-                          onChanged: _handleRadioValueChange1,
-                        ),
-                        new Text(
-                          '\$100/wk',
-                          style: new TextStyle(fontSize: 16.0),
-                        ),
+                          new Text(
+                            '\$1/hr',
+                            textScaleFactor: 0.7,
+                            // style: new TextStyle(fontSize: 0.0),
+                          ),
+                          new Radio(
+                            value: 1,
+                            groupValue: _radioValue1,
+                            onChanged: _handleRadioValueChange1,
+                          ),
+                          new Text(
+                            '\$18/day',
+                            textScaleFactor: 0.7,
+                            // style: new TextStyle(fontSize: 0.0,),
+                          ),
+                          new Radio(
+                            value: 2,
+                            groupValue: _radioValue1,
+                            onChanged: _handleRadioValueChange1,
+                          ),
+                          new Text(
+                            '\$100/wk',
+                            textScaleFactor: 0.7,
+                            // style: new TextStyle(fontSize: 0.0),
+                          ),
 
-                        new Radio(
-                          value: 2,
-                          groupValue: _radioValue1,
-                          onChanged: _handleRadioValueChange1,
-                        ),
-                        new Text(
-                          '\$300/mo',
-                          style: new TextStyle(fontSize: 16.0),
-                        ),
-                      ],
+                          new Radio(
+                            value: 2,
+                            groupValue: _radioValue1,
+                            onChanged: _handleRadioValueChange1,
+                          ),
+                          new Text(
+                            '\$300/mo',
+                            textScaleFactor: 0.7,
+                            // style: new TextStyle(fontSize: 0.0),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -466,38 +497,88 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
           ),
 
           Positioned(
-            top: MediaQuery.of(context).size.height * 0.66,
+            top: MediaQuery.of(context).size.height * 0.6,
             child: Container(
               color: Colors.white,
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
 
                   GestureDetector(
                     onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => LotDetailsWidget()));
+                      // Navigator.push(context, MaterialPageRoute(builder: (context) => LotDetailsWidget()));
                     }
                     ,
                     child: Container(
-                        height: 50.0,
+                        height: MediaQuery.of(context).size.height *0.18,
                         width: MediaQuery.of(context).size.width,
                         color:Colors.white,child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: [
-                          Text("Done")
-                        ],
+                      child: CalendarTimeline(
+                        initialDate: _selectedDate,
+                        firstDate: DateTime.now(),
+                        lastDate: DateTime.now()
+                            .add(Duration(days: 365)),
+                        onDateSelected: (date) {
+                          _selectedDate = date;
+                          setState(() {
+                            String _formattedate =
+                            new DateFormat.yMMMd()
+                                .format(_selectedDate);
+                            apptDate = _formattedate;
+                            print("Date is : " + apptDate);
+                          });
+                        },
+                        leftMargin: 20,
+                        monthColor: Colors.blue[900],
+                        dayColor: Colors.teal[200],
+                        dayNameColor: Colors.white,
+                        activeDayColor: Colors.white,
+                        activeBackgroundDayColor: Colors.blue,
+                        dotsColor: Colors.white,
+
+                        // selectableDayPredicate: (date) =>
+                        //     date.day != 23,
+                        locale: 'en',
                       ),
                     )),
                   ),
-                  Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 1.0,
-                    color:Colors.grey,),
-                  Container(
-                      width: MediaQuery.of(context).size.width,
-                      color:Colors.white,child: hourMinute12HCustomStyle()),
-
+                  // Container(
+                  //   width: MediaQuery.of(context).size.width,
+                  //   height: 1.0,
+                  //   color:Colors.grey,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.6,
+                          color:Colors.white,child: hourMinute12HCustomStyle()),
+                      // Container(
+                      //     height: MediaQuery.of(context).size.height * 0.22,
+                      //     width: 1.0,
+                      //     color:Colors.blue),
+                      Container(
+                          width: MediaQuery.of(context).size.width * 0.3,
+                          height: MediaQuery.of(context).size.height * 0.28,
+                          color:Colors.white,child: Column(
+                        // crossAxisAlignment: CrossAxisAlignment.center,
+                        //     mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
+                              Center(child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: GestureDetector(
+                                    onTap: (){
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => LotDetailsWidget()));
+                                    },
+                                    child: Text("Done",style: TextStyle(color: Colors.blue),)),
+                              )),
+                            ],
+                          )),
+                    ],
+                  ),
+                // SizedBox(height: 50.0,)
                 ],
               ),
             ),
@@ -509,21 +590,23 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
   }
   Widget hourMinute12HCustomStyle(){
     return new TimePickerSpinner(
-
-      isShowSeconds: true,
+      // itemWidth: 30.0,
+      alignment: Alignment.topCenter,
+time: DateTime.now(),
+      // isShowSeconds: true,
       is24HourMode: false,
       normalTextStyle: TextStyle(
           fontSize: 24,
-          color: Colors.deepOrange
+          color: Colors.blue
       ),
       highlightedTextStyle: TextStyle(
           fontSize: 24,
           color: Colors.black
       ),
-      spacing: 25,
-      itemHeight: 80,
+      spacing: 15,
+      itemHeight: 50,
       isForce2Digits: true,
-      minutesInterval: 15,
+      minutesInterval: 1,
       onTimeChange: (time) {
         setState(() {
           // _dateTime = time;

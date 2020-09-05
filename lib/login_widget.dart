@@ -60,7 +60,7 @@ class LoginWidget extends StatelessWidget {
                                color: AppColors.secondaryText,
                                fontFamily: "Roboto",
                                fontWeight: FontWeight.w700,
-                               fontSize: 45,
+                               fontSize: 30,
                                height: 1,
                              )),
 
@@ -99,8 +99,9 @@ class LoginWidget extends StatelessWidget {
                              child:TextField(
                                decoration: InputDecoration(
                                  hintText: "Email Address",
+                                 hintStyle: TextStyle(fontSize: 15),
                                  //border: InputBorder.none,
-                                 contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 6.0,right: 2.0),
+                                 contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 15.0,right: 2.0),
                                  enabledBorder: OutlineInputBorder(
                                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                    borderSide: BorderSide(color: Colors.white, width: 1.0),
@@ -132,9 +133,10 @@ class LoginWidget extends StatelessWidget {
                              child:TextField(
                                decoration: InputDecoration(
                                  hintText: "Password",
+                                 hintStyle: TextStyle(fontSize: 15),
                                  suffixIcon:IconButton(icon: Icon(Icons.visibility,color: Colors.grey,size:20.0), onPressed: null),
                                  //border: InputBorder.none,
-                                 contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 6.0,right: 2.0),
+                                 contentPadding: EdgeInsets.only(top: 18.0,bottom: 18.0,left: 15.0,right: 2.0),
                                  enabledBorder: OutlineInputBorder(
                                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                    borderSide: BorderSide(color: Colors.white, width: 1.0),

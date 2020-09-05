@@ -62,28 +62,38 @@ class _State extends State<WelcomeWidget> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    color: AppColors.primaryBackground,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Color.fromARGB(51, 0, 0, 0),
-                        offset: Offset(0, 20),
-                        blurRadius: 40,
-                      ),
-                    ],
-                    borderRadius: BorderRadius.all(Radius.circular(100)),
+              Padding(
+                padding: EdgeInsets.only(bottom:MediaQuery.of(context).size.height*0.15),
+                child:Container(
+                  //color: Colors.red,
+                  child:Image.asset(
+                    "assets/images/Icon1024.png",width: 140.0,height: 140.0,
+                    fit: BoxFit.cover,
                   ),
-//                width: 90,
-//                height: 116,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 45.0,vertical: 30.0),
-                    child: Image.asset(
-                      "assets/images/logo-2.png",
-                      fit: BoxFit.none,
-                    ),
-                  ),
-                ),
+                )
+              ),
+//                Container(
+//                  decoration: BoxDecoration(
+//                    color: AppColors.primaryBackground,
+//                    boxShadow: [
+//                      BoxShadow(
+//                        color: Color.fromARGB(51, 0, 0, 0),
+//                        offset: Offset(0, 20),
+//                        blurRadius: 40,
+//                      ),
+//                    ],
+//                    borderRadius: BorderRadius.all(Radius.circular(100)),
+//                  ),
+////                width: 90,
+////                height: 116,
+//                  child: Padding(
+//                    padding: const EdgeInsets.symmetric(horizontal: 45.0,vertical: 30.0),
+//                    child: Image.asset(
+//                      "assets/images/logo-2.png",
+//                      fit: BoxFit.none,
+//                    ),
+//                  ),
+//                ),
 
 //              Spacer(),
                 Column(children: <Widget>[

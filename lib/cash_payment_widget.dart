@@ -33,17 +33,17 @@ class _MenuScreenState extends State<CashPaymentWidget> {
         backgroundColor: Colors.transparent,
         // title: Text("Profile Screen"),
         elevation: 0,
-        actions: [
-          PopupMenuButton(
-            // key: _menuKey,
-              itemBuilder: (_) => <PopupMenuItem<String>>[
-                new PopupMenuItem<String>(
-                    child: const Text('Doge'), value: 'Doge'),
-                new PopupMenuItem<String>(
-                    child: const Text('Lion'), value: 'Lion'),
-              ],
-              onSelected: (_) {})
-        ],
+        // actions: [
+        //   PopupMenuButton(
+        //     // key: _menuKey,
+        //       itemBuilder: (_) => <PopupMenuItem<String>>[
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Doge'), value: 'Doge'),
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Lion'), value: 'Lion'),
+        //       ],
+        //       onSelected: (_) {})
+        // ],
       ),
 
       // backgroundColor:  Color.fromARGB(255, 74, 144, 226),

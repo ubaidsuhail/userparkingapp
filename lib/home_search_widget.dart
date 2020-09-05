@@ -37,17 +37,6 @@ class _MenuScreenState extends State<HomeSearchWidget> {
               Image(image: AssetImage('assets/images/map.png'),
                 fit: BoxFit.cover,
               )
-//       GoogleMap(
-//         mapType: MapType.normal,
-//         initialCameraPosition:  CameraPosition(target: LatLng(24.8607, 67.0011), zoom: 10),
-//         onMapCreated: (GoogleMapController controller) {
-//           _controller.complete(controller);
-//         },
-// // //          markers: {
-// // //            newyork1Marker,newyork2Marker,newyork3Marker,gramercyMarker,bernardinMarker,blueMarker,
-// // //          }
-// //         markers: allMarkers.toSet(),
-//       ),
           ),
           Positioned(
             left: -450,
@@ -68,15 +57,180 @@ class _MenuScreenState extends State<HomeSearchWidget> {
           ),
 
           Positioned(
+          top: MediaQuery.of(context).size.height * 0.35,
+            left: MediaQuery.of(context).size.width * 0.52,
+            child: GestureDetector(
+            onTap: (){
+            showAlertDialog(context);
+            },
+            child:
+          Column(
+            children: [
+              Container (
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(25.0),
+                  color: Colors.white,
+                ),
+
+                width: MediaQuery.of(context).size.width * 0.4,
+                height: 40.0,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.cyan)
+                        ),
+                        height: 30.0,
+                        width: 30.0,
+                        child: Center(child: Text('M'),)
+                      ),
+                      SizedBox(width: 20.0,),
+                      Text('\$1.00/h',style: TextStyle(fontWeight: FontWeight.bold),)
+                    ],
+                  ),
+                ),
+              ),
+              Container(
+                height: 25.0,
+                width: 2.0,
+                color: Colors.black,
+              )
+            ],
+          ),)),
+          Positioned(
+              top: MediaQuery.of(context).size.height * 0.65,
+              right: MediaQuery.of(context).size.width * 0.52,
+              child: GestureDetector(
+                onTap: (){
+                  showAlertDialog(context);
+                },
+                child:
+                Column(
+                  children: [
+                    Container (
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Colors.white,
+                      ),
+
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: 40.0,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: Colors.orange)
+                                ),
+                                height: 30.0,
+                                width: 30.0,
+                                child: Center(child: Text('S',style: TextStyle(fontWeight: FontWeight.bold),),)
+                            ),
+                            SizedBox(width: 20.0,),
+                            Text('\$1.00/h',style: TextStyle(fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 25.0,
+                      width: 2.0,
+                      color: Colors.black,
+                    )
+                  ],
+                ),)),
+          Positioned(
+              top: MediaQuery.of(context).size.height * 0.85,
+              left: MediaQuery.of(context).size.width * 0.65,
+              child: GestureDetector(
+                onTap: (){
+                  showAlertDialog(context);
+                },
+                child:
+                Column(
+                  children: [
+                    Container (
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Colors.white,
+                      ),
+
+                      width: MediaQuery.of(context).size.width * 0.4,
+                      height: 40.0,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                        child: Row(
+                          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Container(
+                                decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(color: Colors.orange)
+                                ),
+                                height: 30.0,
+                                width: 30.0,
+                                child: Center(child: Text('S',style: TextStyle(fontWeight: FontWeight.bold),),)
+                            ),
+                            SizedBox(width: 20.0,),
+                            Text('\$1.00/h',style: TextStyle(fontWeight: FontWeight.bold),)
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      height: 25.0,
+                      width: 2.0,
+                      color: Colors.black,
+                    )
+                  ],
+                ),)),
+          Positioned(
+              top: MediaQuery.of(context).size.height * 0.45,
+              left: MediaQuery.of(context).size.width * 0.32,
+              child: GestureDetector(
+                onTap: (){
+                  // showAlertDialog(context);
+                },
+                child:
+                Column(
+                  children: [
+                    Image(image: AssetImage('assets/images/user-pulse.png'),width: 40.0,),
+                    Container(
+                      height: 5.0,
+                      width: 5.0,
+                      color: Colors.white,
+                    ),
+                    Container (
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(25.0),
+                        color: Colors.white,
+                      ),
+
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      height: 25.0,
+                      child: Center(child: Text('You are here' ,style: TextStyle(fontWeight: FontWeight.bold),))
+                    ),
+
+                  ],
+                ),)),
+          Positioned(
             top: MediaQuery.of(context).size.height * 0.14,
             child: GestureDetector(
               onTap: (){
+
                 showAlertDialog(context);
               },
               child: Container(
                   decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(10.0)
+                      borderRadius: BorderRadius.circular(25.0)
                   ),
                   height: 50.0,
                   width:MediaQuery.of(context).size.width* 0.78,
@@ -106,6 +260,7 @@ showAlertDialog(BuildContext context) {
 
   // show the dialog
   showDialog(
+    barrierDismissible: false,
     context: context,
     builder: (BuildContext context) {
       return Material(
@@ -133,11 +288,16 @@ showAlertDialog(BuildContext context) {
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                                 width: 200.0,
-                                child: Text('Search Results',textScaleFactor: 1,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: AppColors.primaryText),))
+                                child: Text('Search Results',textScaleFactor: 1,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15.0,color: AppColors.primaryText),)),
+                            GestureDetector(
+                                onTap: (){
+                                  Navigator.of(context).pop();
+                                },
+                                child: Image(image: AssetImage('assets/images/oval-6-2.png'),))
                           ],
                         ),
                       ),
@@ -145,6 +305,7 @@ showAlertDialog(BuildContext context) {
 
                       GestureDetector(
                         onTap: (){
+                          Navigator.of(context).pop();
                           Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDateTimeWidget()));
                         },
                         child: Container(
@@ -171,7 +332,7 @@ showAlertDialog(BuildContext context) {
 
                                   Container(
 
-                                    height: 60.0,
+                                    height: MediaQuery.of(context).size.height * 0.08,
                                     width: 60.0,
                                     decoration: BoxDecoration(
                                       // borderRadius: BorderRadius.circular(30.0),
@@ -250,6 +411,7 @@ showAlertDialog(BuildContext context) {
                       SizedBox(height: 10.0,),
                       GestureDetector(
                         onTap: (){
+                          Navigator.of(context).pop();
                           Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDateTimeWidget()));
                         },
                         child: Container(
@@ -276,7 +438,7 @@ showAlertDialog(BuildContext context) {
 
                                   Container(
 
-                                    height: 60.0,
+                                    height: MediaQuery.of(context).size.height * 0.08,
                                     width: 60.0,
                                     decoration: BoxDecoration(
                                       // borderRadius: BorderRadius.circular(30.0),
@@ -356,6 +518,7 @@ showAlertDialog(BuildContext context) {
 
                       GestureDetector(
                         onTap: (){
+                          Navigator.of(context).pop();
                           Navigator.push(context, MaterialPageRoute(builder: (context) => HomeDateTimeWidget()));
                         },
                         child: Container(
@@ -382,7 +545,7 @@ showAlertDialog(BuildContext context) {
 
                                   Container(
 
-                                    height: 60.0,
+                                    height: MediaQuery.of(context).size.height * 0.08,
                                     width: 60.0,
                                     decoration: BoxDecoration(
                                       // borderRadius: BorderRadius.circular(30.0),
@@ -458,46 +621,46 @@ showAlertDialog(BuildContext context) {
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 50.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Container(
-                              height: 10.0,
-                              width: 10.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.primaryText,
-                              ),
+                      Container(
+                        height: MediaQuery.of(context).size.height * 0.04,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            height: 10.0,
+                            width: 10.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.primaryText,
+                            ),
 
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Container(
+                            height: 10.0,
+                            width: 10.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.primaryText,
                             ),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Container(
-                              height: 10.0,
-                              width: 10.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.primaryText,
-                              ),
 
+                          ),
+                          SizedBox(
+                            width: 5.0,
+                          ),
+                          Container(
+                            height: 10.0,
+                            width: 10.0,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: AppColors.primaryText,
                             ),
-                            SizedBox(
-                              width: 5.0,
-                            ),
-                            Container(
-                              height: 10.0,
-                              width: 10.0,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColors.primaryText,
-                              ),
 
-                            )
-                          ],
-                        ),
+                          )
+                        ],
                       )
                     ],
                   ),

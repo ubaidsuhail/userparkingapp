@@ -197,10 +197,10 @@ class _MenuScreenState extends State<DetailsCCWidget> {
 
                               },
                               child: Text(
-                                "RATE & REVIEW",
+                                "Ji, Asia Afrika No.Lot.19.RT/Rw.3, Gelora \n Tanah Abang, Kota Jakarta Pusat",
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
-                                  color: Colors.pink,
+                                  color: Colors.blue[900],
                                   fontFamily: "Rubik",
                                   fontWeight: FontWeight.w400,
                                   fontSize: 14,

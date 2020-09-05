@@ -59,17 +59,17 @@ class _State extends State<PayCCWidget> {
         backgroundColor: Colors.transparent,
         // title: Text("Profile Screen"),
         elevation: 0,
-        actions: [
-          PopupMenuButton(
-            // key: _menuKey,
-              itemBuilder: (_) => <PopupMenuItem<String>>[
-                new PopupMenuItem<String>(
-                    child: const Text('Doge'), value: 'Doge'),
-                new PopupMenuItem<String>(
-                    child: const Text('Lion'), value: 'Lion'),
-              ],
-              onSelected: (_) {})
-        ],
+        // actions: [
+        //   PopupMenuButton(
+        //     // key: _menuKey,
+        //       itemBuilder: (_) => <PopupMenuItem<String>>[
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Doge'), value: 'Doge'),
+        //         new PopupMenuItem<String>(
+        //             child: const Text('Lion'), value: 'Lion'),
+        //       ],
+        //       onSelected: (_) {})
+        // ],
       ),
       backgroundColor:  Color.fromARGB(255, 74, 144, 226),
       body: Container(
@@ -245,7 +245,7 @@ class _State extends State<PayCCWidget> {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 Container(
-                                  margin: EdgeInsets.only(right: 39),
+                                  // margin: EdgeInsets.only(right: 39),
                                   child: Text(
                                     "Senayan City Mall",
                                     textAlign: TextAlign.left,
@@ -843,12 +843,17 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Image.asset(
-                                      "assets/images/oval-6-2.png",
-                                      // width: 80.0,
-                                      // height: 80.0,
+                                  GestureDetector(
+                              onTap:(){
+                                Navigator.of(context).pop()
+;                              },
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Image.asset(
+                                        "assets/images/oval-6-2.png",
+                                        // width: 80.0,
+                                        // height: 80.0,
+                                      ),
                                     ),
                                   )
                                 ],
@@ -874,7 +879,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                               ),
 
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -895,7 +900,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
                                       hintText: "Email",
-                                      hintStyle: TextStyle(color: Colors.grey[300]),
+                                      hintStyle: TextStyle(color: Colors.grey[300],fontSize: 12.0),
                                       prefixIcon: IconButton(
                                         // onPressed: () => _controller.clear(),
                                         icon: Icon(Icons.email,size: 20.0,color: AppColors.primaryText),
@@ -906,7 +911,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                               ),
                               SizedBox(height: 10.0,),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
@@ -927,7 +932,8 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                     decoration: InputDecoration(
                                       border: InputBorder.none,
                                       hintText: "Card Number",
-                                      hintStyle: TextStyle(color: Colors.grey[300]),
+                                      hintStyle: TextStyle(color: Colors.grey[300],fontSize: 12.0),
+                                      // hintStyle: TextStyle(color: Colors.grey[300]),
                                       prefixIcon: IconButton(
                                         // onPressed: () => _controller.clear(),
                                         icon: Icon(Icons.calendar_today,size: 20.0,color: AppColors.primaryText,),
@@ -937,7 +943,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
@@ -956,14 +962,15 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                       ),
                                       height: MediaQuery.of(context).size.height * 0.05,
-                                      width: MediaQuery.of(context).size.width * 0.29,
+                                      width: MediaQuery.of(context).size.width * 0.305,
                                       child: TextField(
                                         // controller: _controller,
 
                                         decoration: InputDecoration(
                                           border: InputBorder.none,
                                           hintText: "MM / YY",
-                                          hintStyle: TextStyle(color: Colors.grey[300]),
+                                          hintStyle: TextStyle(color: Colors.grey[300],fontSize: 12.0),
+                                          // hintStyle: TextStyle(color: Colors.grey[300]),
                                           prefixIcon: IconButton(
                                             // onPressed: () => _controller.clear(),
                                             icon: Icon(Icons.credit_card,size: 20.0,color: AppColors.primaryText),
@@ -985,14 +992,14 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                         borderRadius: BorderRadius.all(Radius.circular(5.0)),
                                       ),
                                       height: MediaQuery.of(context).size.height * 0.05,
-                                      width: MediaQuery.of(context).size.width * 0.29,
+                                      width: MediaQuery.of(context).size.width * 0.305,
                                       child: TextField(
                                         // controller: _controller,
 
                                         decoration: InputDecoration(
                                           border: InputBorder.none,
                                           hintText: "",
-                                          hintStyle: TextStyle(color: Colors.grey[300]),
+                                          hintStyle: TextStyle(color: Colors.grey[300],fontSize: 12.0),
                                           prefixIcon: IconButton(
                                             // onPressed: () => _controller.clear(),
                                             icon: Icon(Icons.lock_outline,size: 20.0,color: AppColors.primaryText),
@@ -1005,7 +1012,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                               ),
 
                               Padding(
-                                padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                                 child: Container(
                                   decoration: BoxDecoration(
                                     color: Colors.white,
