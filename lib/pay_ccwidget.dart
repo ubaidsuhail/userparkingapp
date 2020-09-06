@@ -1051,6 +1051,7 @@ showAlertDialog(BuildContext context,checkBoxValue) {
                                 padding: const EdgeInsets.symmetric(horizontal: 30.0),
                                 child: GestureDetector(
                                   onTap: (){
+                                    Navigator.pop(context);
                                     Navigator.push(context, MaterialPageRoute(builder: (context) => CCPaymentSuccess()));
                                   },
                                   child: Container(

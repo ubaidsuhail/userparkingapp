@@ -568,11 +568,22 @@ class _MenuScreenState extends State<HomeDateTimeWidget> {
                               SizedBox(height: MediaQuery.of(context).size.height * 0.08,),
                               Center(child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: GestureDetector(
-                                    onTap: (){
+                                child: Container(
+                                  height: MediaQuery.of(context).size.height*0.05,
+                                  width: MediaQuery.of(context).size.width*0.2,
+                                  child: FlatButton(
+                                    onPressed: () {
+                                      //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()));
                                       Navigator.push(context, MaterialPageRoute(builder: (context) => LotDetailsWidget()));
                                     },
-                                    child: Text("Done",style: TextStyle(color: Colors.blue),)),
+                                    color: AppColors.accentElement,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: Radii.k5pxRadius,
+                                    ),
+                                    padding: EdgeInsets.all(0),
+                                    child: Text("Done",style: TextStyle(color: AppColors.primaryElement),),
+                                  ),
+                                ),
                               )),
                             ],
                           )),

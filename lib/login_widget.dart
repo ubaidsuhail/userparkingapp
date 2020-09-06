@@ -170,7 +170,7 @@ class LoginWidget extends StatelessWidget {
               child: FlatButton(
                 onPressed: () {
                   //Navigator.push(context, MaterialPageRoute(builder: (context) => MenuScreen()));
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => MenuSecondWidget()));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => MenuSecondWidget()));
                 },
                 color: AppColors.primaryElement,
                 shape: RoundedRectangleBorder(

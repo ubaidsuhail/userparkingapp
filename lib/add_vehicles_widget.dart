@@ -22,17 +22,6 @@ class AddVehiclesWidget extends StatelessWidget {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
-          actions: [
-            PopupMenuButton(
-              // key: _menuKey,
-                itemBuilder: (_) => <PopupMenuItem<String>>[
-                  new PopupMenuItem<String>(
-                      child: const Text('Doge'), value: 'Doge'),
-                  new PopupMenuItem<String>(
-                      child: const Text('Lion'), value: 'Lion'),
-                ],
-                onSelected: (_) {})
-          ],
         ),
         backgroundColor:  Color.fromARGB(255, 74, 144, 226),
         body:SingleChildScrollView(

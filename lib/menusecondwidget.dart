@@ -6,7 +6,7 @@ import 'package:p4u/privacy_policy_widget.dart';
 import 'package:p4u/values.dart';
 import 'package:p4u/mybookings_widget.dart';
 import 'package:p4u/my_vehicles_widget.dart';
-import 'package:p4u/lot_details_widget.dart';
+import 'package:p4u/login_widget.dart';
 import 'package:p4u/home_search_widget.dart';
 
 
@@ -254,7 +254,9 @@ class _MenuScreenState extends State<MenuSecondWidget> {
                     child: FlatButton(
                       onPressed: (){
                         Navigator.pop(context);
-                        Navigator.pop(context);
+                        Navigator.pushAndRemoveUntil(context,
+                            MaterialPageRoute(builder: (BuildContext context) => LoginWidget()),
+                            ModalRoute.withName('/'));
                       },
                       child: Row(
                         // mainAxisAlignment: MainAxisAlignment.center,

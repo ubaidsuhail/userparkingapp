@@ -8,6 +8,7 @@ import 'package:p4u/values.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter_time_picker_spinner/flutter_time_picker_spinner.dart';
+import 'package:p4u/menusecondwidget.dart';
 import 'package:location/location.dart';
 //import 'package:geolocator/geolocator.dart';
 
@@ -32,18 +33,16 @@ class _MenuScreenState extends State<CCPaymentSuccess> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         // title: Text("Profile Screen"),
-        elevation: 0,
-        // actions: [
-        //   PopupMenuButton(
-        //     // key: _menuKey,
-        //       itemBuilder: (_) => <PopupMenuItem<String>>[
-        //         new PopupMenuItem<String>(
-        //             child: const Text('Doge'), value: 'Doge'),
-        //         new PopupMenuItem<String>(
-        //             child: const Text('Lion'), value: 'Lion'),
-        //       ],
-        //       onSelected: (_) {})
-        // ],
+          automaticallyImplyLeading: false,
+          leading: GestureDetector(
+            onTap: (){
+              //Navigator.pushReplacement(context,MaterialPageRoute(builder: (BuildContext context) => LoginWidget()));
+              Navigator.pushAndRemoveUntil(context,
+                  MaterialPageRoute(builder: (BuildContext context) => MenuSecondWidget()),
+                  ModalRoute.withName('/'));
+            },
+            child: Icon(Icons.arrow_back),
+          )
       ),
 
       // backgroundColor:  Color.fromARGB(255, 74, 144, 226),
